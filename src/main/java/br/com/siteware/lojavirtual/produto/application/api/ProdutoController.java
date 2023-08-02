@@ -28,7 +28,9 @@ public class ProdutoController implements ProdutoAPI {
 
 	@Override
 	public List<ListaProdutosResponse> listaProdutos() {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("[start] ProdutoController - listaProdutos");
+		List<ListaProdutosResponse> produtos = produtoService.listaProdutos();
+		log.info("[finish] ProdutoController - listaProdutos");
+		return produtos;
 	}
 }
