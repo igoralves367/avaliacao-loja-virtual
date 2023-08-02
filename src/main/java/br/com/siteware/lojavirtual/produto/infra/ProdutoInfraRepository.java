@@ -25,7 +25,8 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	@Override
 	public List<Produto> listProdutos() {
 		log.info("[start] ProdutoInfraRepository - listProdutos");
+		List<Produto> todosProdutos = produtoSpringDataJPARepository.findAll();
 		log.info("[finish] ProdutoInfraRepository - listProdutos");
-		return null;
+		return todosProdutos;
 	}
 }
