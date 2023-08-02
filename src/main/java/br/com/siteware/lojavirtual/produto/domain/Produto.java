@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,9 @@ public class Produto {
 	private UUID idProduto;
 	@NotBlank(message = "Insira o nome do produto")
 	private String nomeProduto;
+	@NotNull(message = "Insira o preco do produto")
 	private BigDecimal preco;
+	@NotNull(message = "Insira a quantidade do produto")
 	private Integer quantidadeProduto;
 	
 	private LocalDateTime dataHoraDoCadastro; 
