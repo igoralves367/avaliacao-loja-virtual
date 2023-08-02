@@ -1,5 +1,7 @@
 package br.com.siteware.lojavirtual.produto.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
@@ -18,5 +20,12 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 		produtoSpringDataJPARepository.save(produto);
 		log.info("[finish] ProdutoInfraRepository - salva");
 		return produto;
+	}
+
+	@Override
+	public List<Produto> listProdutos() {
+		log.info("[start] ProdutoInfraRepository - listProdutos");
+		log.info("[finish] ProdutoInfraRepository - listProdutos");
+		return null;
 	}
 }

@@ -30,7 +30,8 @@ public class ProdutoApplicationService implements ProdutoService {
 	@Override
 	public List<ListaProdutosResponse> listaProdutos() {
 		log.info("[start] ProdutoApplicationService - listaProdutos");
+		List<Produto> produtos = produtoRepository.listProdutos();
 		log.info("[finish] ProdutoApplicationService - listaProdutos");
-		return null;
+		return ListaProdutosResponse.converte(produtos);
 	}
 }
