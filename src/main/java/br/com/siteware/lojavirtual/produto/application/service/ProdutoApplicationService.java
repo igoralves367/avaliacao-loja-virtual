@@ -1,9 +1,11 @@
 package br.com.siteware.lojavirtual.produto.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.siteware.lojavirtual.produto.application.api.reponses.ConsultaProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ListaProdutosResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
@@ -33,5 +35,12 @@ public class ProdutoApplicationService implements ProdutoService {
 		List<Produto> produtos = produtoRepository.listProdutos();
 		log.info("[finish] ProdutoApplicationService - listaProdutos");
 		return ListaProdutosResponse.converte(produtos);
+	}
+
+	@Override
+	public ConsultaProdutoResponse consultaProdutoAtravesId(UUID idProduto) {
+		log.info("[start] ProdutoApplicationService - consultaProdutoAtravesId");
+		log.info("[finish] ProdutoApplicationService - consultaProdutoAtravesId");
+		return null;
 	}
 }

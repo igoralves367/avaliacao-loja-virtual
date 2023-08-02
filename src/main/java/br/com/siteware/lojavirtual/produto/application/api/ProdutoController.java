@@ -40,7 +40,8 @@ public class ProdutoController implements ProdutoAPI {
 	public ConsultaProdutoResponse consultaProdutoAtravesId(UUID idProduto) {
 		log.info("[start] ProdutoController - consultaProdutoAtravesId");
 		log.info("[idPessoa] {}", idProduto);
+		ConsultaProdutoResponse  consultaProduto = produtoService.consultaProdutoAtravesId(idProduto);
 		log.info("[finish] ProdutoController - consultaProdutoAtravesId");
-		return null;
+		return consultaProduto;
 	}
 }
