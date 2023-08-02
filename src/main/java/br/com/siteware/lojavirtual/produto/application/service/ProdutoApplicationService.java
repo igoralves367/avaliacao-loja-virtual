@@ -40,7 +40,8 @@ public class ProdutoApplicationService implements ProdutoService {
 	@Override
 	public ConsultaProdutoResponse consultaProdutoAtravesId(UUID idProduto) {
 		log.info("[start] ProdutoApplicationService - consultaProdutoAtravesId");
+		Produto produto = produtoRepository.consultaProdutoAtravesId(idProduto);
 		log.info("[finish] ProdutoApplicationService - consultaProdutoAtravesId");
-		return null;
+		return new ConsultaProdutoResponse(produto);
 	}
 }

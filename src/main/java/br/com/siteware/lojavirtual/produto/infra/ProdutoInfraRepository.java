@@ -1,6 +1,7 @@
 package br.com.siteware.lojavirtual.produto.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -28,5 +29,12 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 		List<Produto> todosProdutos = produtoSpringDataJPARepository.findAll();
 		log.info("[finish] ProdutoInfraRepository - listProdutos");
 		return todosProdutos;
+	}
+
+	@Override
+	public Produto consultaProdutoAtravesId(UUID idProduto) {
+		log.info("[start] ProdutoInfraRepository - consultaProdutoAtravesId");
+		log.info("[finish] ProdutoInfraRepository - consultaProdutoAtravesId");
+		return null;
 	}
 }
