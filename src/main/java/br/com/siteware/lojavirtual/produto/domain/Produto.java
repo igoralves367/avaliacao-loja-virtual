@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Produto {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
@@ -38,4 +40,11 @@ public class Produto {
 	
 	private LocalDateTime dataHoraDoCadastro; 
 	private LocalDateTime dataHoraDaUltimaAlteracao; 
+	
+	public Produto(ProdutoRequest produtoRequest) {
+		this.nomeProduto = produtoRequest.getNomeProduto();
+		this.preco = produtoRequest.getPreco();
+		this.quantidadeProduto = produtoRequest.getQuantidadeProduto();
+		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
 }
