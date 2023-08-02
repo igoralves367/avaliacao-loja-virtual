@@ -1,9 +1,12 @@
 package br.com.siteware.lojavirtual.produto.application.api;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.siteware.lojavirtual.produto.application.api.reponses.ListaProdutosResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 import br.com.siteware.lojavirtual.produto.application.service.ProdutoService;
@@ -21,5 +24,11 @@ public class ProdutoController implements ProdutoAPI {
 		ProdutoResponse produtoResponse = produtoService.criaProduto(produtoRequest);
 		log.info("[finish] ProdutoController - postProduto");
 		return produtoResponse;
+	}
+
+	@Override
+	public List<ListaProdutosResponse> listaProdutos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
