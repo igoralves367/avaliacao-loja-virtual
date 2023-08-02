@@ -1,4 +1,4 @@
-package br.com.siteware.lojavirtual.produto.api.reponses;
+package br.com.siteware.lojavirtual.produto.application.api.reponses;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package br.com.siteware.lojavirtual.produto.api.requests;
+package br.com.siteware.lojavirtual.produto.application.api.requests;
 
 import java.math.BigDecimal;
 

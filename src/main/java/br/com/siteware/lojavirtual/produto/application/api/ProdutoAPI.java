@@ -1,4 +1,4 @@
-package br.com.siteware.lojavirtual.produto.api;
+package br.com.siteware.lojavirtual.produto.application.api;
 
 import javax.validation.Valid;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.siteware.lojavirtual.produto.api.reponses.ProdutoResponse;
-import br.com.siteware.lojavirtual.produto.api.requests.ProdutoRequest;
+import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
+import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 
 @RestController
 @RequestMapping("/v1/produto")
