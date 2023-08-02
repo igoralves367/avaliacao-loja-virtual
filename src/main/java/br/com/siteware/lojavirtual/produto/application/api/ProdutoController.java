@@ -1,11 +1,13 @@
 package br.com.siteware.lojavirtual.produto.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.siteware.lojavirtual.produto.application.api.reponses.ConsultaProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ListaProdutosResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
@@ -32,5 +34,13 @@ public class ProdutoController implements ProdutoAPI {
 		List<ListaProdutosResponse> produtos = produtoService.listaProdutos();
 		log.info("[finish] ProdutoController - listaProdutos");
 		return produtos;
+	}
+
+	@Override
+	public ConsultaProdutoResponse consultaProdutoAtravesId(UUID idProduto) {
+		log.info("[start] ProdutoController - consultaProdutoAtravesId");
+		log.info("[idPessoa] {}", idProduto);
+		log.info("[finish] ProdutoController - consultaProdutoAtravesId");
+		return null;
 	}
 }
