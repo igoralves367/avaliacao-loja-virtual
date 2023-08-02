@@ -1,5 +1,12 @@
 package br.com.siteware.lojavirtual.produto.api.reponses;
 
-public class ProdutoResponse {
+import java.util.UUID;
 
+import lombok.Builder;
+import lombok.Value;
+
+@Value
+@Builder
+public class ProdutoResponse {
+	private UUID idProduto;
 }
