@@ -50,6 +50,7 @@ public class ProdutoController implements ProdutoAPI {
 	public void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 		log.info("[start] ProdutoController - alteraProduto");
 		log.info("[idPessoa] {}", idProduto);
+		produtoService.alteraProduto(idProduto, produtoAlteracaoRequest);
 		log.info("[finish] ProdutoController - alteraProduto");
 	}
 }

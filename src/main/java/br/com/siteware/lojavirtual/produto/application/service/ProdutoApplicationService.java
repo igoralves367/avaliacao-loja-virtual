@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ConsultaProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ListaProdutosResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
+import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoAlteracaoRequest;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
 import br.com.siteware.lojavirtual.produto.domain.Produto;
@@ -43,5 +44,11 @@ public class ProdutoApplicationService implements ProdutoService {
 		Produto produto = produtoRepository.consultaProdutoAtravesId(idProduto);
 		log.info("[finish] ProdutoApplicationService - consultaProdutoAtravesId");
 		return new ConsultaProdutoResponse(produto);
+	}
+
+	@Override
+	public void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+		log.info("[start] ProdutoApplicationService - alteraProduto");
+		log.info("[finish] ProdutoApplicationService - alteraProduto");
 	}
 }
