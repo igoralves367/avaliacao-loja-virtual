@@ -45,5 +45,5 @@ public interface ProdutoAPI {
 
 	@DeleteMapping(value = "/{idProduto}")
 	@ResponseStatus(value = HttpStatus.ACCEPTED)
-	void deletaCliente(@PathVariable UUID idProduto);
+	void deletaProduto(@PathVariable UUID idProduto);
 }

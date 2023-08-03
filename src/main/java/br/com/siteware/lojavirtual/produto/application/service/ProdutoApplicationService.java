@@ -54,4 +54,10 @@ public class ProdutoApplicationService implements ProdutoService {
 		produtoRepository.salva(produto);
 		log.info("[finish] ProdutoApplicationService - alteraProduto");
 	}
+
+	@Override
+	public void deletaProduto(UUID idProduto) {
+		// TODO Auto-generated method stub
+		
+	}
 }

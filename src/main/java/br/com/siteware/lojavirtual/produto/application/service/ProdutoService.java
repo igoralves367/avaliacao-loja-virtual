@@ -14,4 +14,5 @@ public interface ProdutoService {
 	List<ListaProdutosResponse> listaProdutos();
 	ConsultaProdutoResponse consultaProdutoAtravesId(UUID idProduto);
 	void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest);
+	void deletaProduto(UUID idProduto);
 }
