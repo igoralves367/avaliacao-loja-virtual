@@ -53,4 +53,11 @@ public class ProdutoController implements ProdutoAPI {
 		produtoService.alteraProduto(idProduto, produtoAlteracaoRequest);
 		log.info("[finish] ProdutoController - alteraProduto");
 	}
+
+	@Override
+	public void deletaCliente(UUID idProduto) {
+		log.info("[start] ProdutoController - deletaCliente");
+		log.info("[idPessoa] {}", idProduto);
+		log.info("[finish] ProdutoController - deletaCliente");
+	}
 }
