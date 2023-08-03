@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoAlteracaoRequest;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -46,5 +47,12 @@ public class Produto {
 		this.preco = produtoRequest.getPreco();
 		this.quantidadeProduto = produtoRequest.getQuantidadeProduto();
 		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+		this.nomeProduto = produtoAlteracaoRequest.getNomeProduto();
+		this.preco = produtoAlteracaoRequest.getPreco();
+		this.quantidadeProduto = produtoAlteracaoRequest.getQuantidadeProduto();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
