@@ -49,4 +49,10 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 		log.info("[finish] ProdutoInfraRepository - consultaProdutoAtravesId");
 		return produto;
 	}
+
+	@Override
+	public void deleteProduto(Produto produto) {
+		log.info("[start] ProdutoInfraRepository - deleteProduto");
+		log.info("[finish] ProdutoInfraRepository - deleteProduto");
+	}
 }

@@ -57,7 +57,10 @@ public class ProdutoApplicationService implements ProdutoService {
 
 	@Override
 	public void deletaProduto(UUID idProduto) {
-		// TODO Auto-generated method stub
+		log.info("[start] ProdutoApplicationService - deletaProduto");
+		Produto produto = produtoRepository.consultaProdutoAtravesId(idProduto);
+		produtoRepository.deleteProduto(produto);
+		log.info("[finish] ProdutoApplicationService - deletaProduto");
 		
 	}
 }
