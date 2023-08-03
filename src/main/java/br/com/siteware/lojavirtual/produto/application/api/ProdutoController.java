@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ConsultaProdutoResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ListaProdutosResponse;
 import br.com.siteware.lojavirtual.produto.application.api.reponses.ProdutoResponse;
+import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoAlteracaoRequest;
 import br.com.siteware.lojavirtual.produto.application.api.requests.ProdutoRequest;
 import br.com.siteware.lojavirtual.produto.application.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
@@ -43,5 +44,12 @@ public class ProdutoController implements ProdutoAPI {
 		ConsultaProdutoResponse  consultaProduto = produtoService.consultaProdutoAtravesId(idProduto);
 		log.info("[finish] ProdutoController - consultaProdutoAtravesId");
 		return consultaProduto;
+	}
+
+	@Override
+	public void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+		log.info("[start] ProdutoController - alteraProduto");
+		log.info("[idPessoa] {}", idProduto);
+		log.info("[finish] ProdutoController - alteraProduto");
 	}
 }
