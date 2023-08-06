@@ -12,7 +12,6 @@ public class ConsultaProdutoResponse {
 	private UUID IdProduto;
 	private String nomeProduto;
 	private BigDecimal preco;
-	private Integer quantidadeProduto;
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
@@ -20,7 +19,6 @@ public class ConsultaProdutoResponse {
 		this.IdProduto = produto.getIdProduto();
 		this.nomeProduto = produto.getNomeProduto();
 		this.preco = produto.getPreco();
-		this.quantidadeProduto = produto.getQuantidadeProduto();
 		this.dataHoraDoCadastro = produto.getDataHoraDoCadastro();
 		this.dataHoraDaUltimaAlteracao = produto.getDataHoraDaUltimaAlteracao();
 	}

@@ -12,7 +12,6 @@ public class ListaProdutosResponse {
 	private UUID IdProduto;
 	private String nomeProduto;
 	private BigDecimal preco;
-	private Integer quantidadeProduto;
 	
 	public static List<ListaProdutosResponse> converte(List<Produto> produtos) {
 		return produtos.stream()
@@ -24,6 +23,5 @@ public class ListaProdutosResponse {
 		IdProduto = produto.getIdProduto();
 		this.nomeProduto = produto.getNomeProduto();
 		this.preco = produto.getPreco();
-		this.quantidadeProduto = produto.getQuantidadeProduto();
 	}
 }

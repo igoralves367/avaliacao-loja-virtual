@@ -36,8 +36,6 @@ public class Produto {
 	private String nomeProduto;
 	@NotNull(message = "Insira o preco do produto")
 	private BigDecimal preco;
-	@NotNull(message = "Insira a quantidade do produto")
-	private Integer quantidadeProduto;
 	
 	private LocalDateTime dataHoraDoCadastro; 
 	private LocalDateTime dataHoraDaUltimaAlteracao; 
@@ -45,14 +43,12 @@ public class Produto {
 	public Produto(ProdutoRequest produtoRequest) {
 		this.nomeProduto = produtoRequest.getNomeProduto();
 		this.preco = produtoRequest.getPreco();
-		this.quantidadeProduto = produtoRequest.getQuantidadeProduto();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
 
 	public void altera(ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 		this.nomeProduto = produtoAlteracaoRequest.getNomeProduto();
 		this.preco = produtoAlteracaoRequest.getPreco();
-		this.quantidadeProduto = produtoAlteracaoRequest.getQuantidadeProduto();
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }

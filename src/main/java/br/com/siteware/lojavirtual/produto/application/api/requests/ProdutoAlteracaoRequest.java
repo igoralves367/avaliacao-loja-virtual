@@ -12,6 +12,4 @@ public class ProdutoAlteracaoRequest {
 	private String nomeProduto;
 	@NotNull(message = "Insira o preco do produto")
 	private BigDecimal preco;
-	@NotNull(message = "Insira a quantidade do produto")
-	private Integer quantidadeProduto;
 }
