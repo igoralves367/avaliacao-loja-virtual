@@ -2,6 +2,7 @@ package br.com.siteware.lojavirtual.carrinho.application.service;
 
 import org.springframework.stereotype.Service;
 
+import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
@@ -14,9 +15,9 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	private final CarrinhoDeComprasRepository carrinhoDeComprasRepository;
 
 	@Override
-	public CarrinhoResponse criaCarrinhoDeCompras() {
+	public CarrinhoResponse criaCarrinhoDeCompras(CarrinhoRequest carrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
-		CarrinhoDeCompras carrinhoDeCompras = CarrinhoDeCompras.criarNovoCarrinhoDeCompras();
+		CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras(carrinhoRequest);
 	    CarrinhoDeCompras carrinhoSalvo = carrinhoDeComprasRepository.salva(carrinhoDeCompras);
 	    log.info("[finish] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
 	    return new CarrinhoResponse(carrinhoSalvo.getIdCarrinhoDeCompras());

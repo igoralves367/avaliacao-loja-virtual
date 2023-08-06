@@ -6,6 +6,7 @@ import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeCom
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -14,10 +15,9 @@ public class CarrinhoDeComprasInfraRepository implements CarrinhoDeComprasReposi
 
 	@Override
 	public CarrinhoDeCompras salva(CarrinhoDeCompras carrinhoDeCompras) {
-		 log.info("[start] CarrinhoDeComprasInfraRepository - salva");
-		 CarrinhoDeCompras carrinhoSalvo = carrinhoDeComprasSpringDataJPARepository.save(carrinhoDeCompras);
-		 log.info("[finish] CarrinhoDeComprasInfraRepository - salva");
+		log.info("[start] CarrinhoDeComprasInfraRepository - salva");
+		CarrinhoDeCompras carrinhoSalvo = carrinhoDeComprasSpringDataJPARepository.save(carrinhoDeCompras);
+		log.info("[finish] CarrinhoDeComprasInfraRepository - salva");
 		return carrinhoSalvo;
 	}
-
 }
