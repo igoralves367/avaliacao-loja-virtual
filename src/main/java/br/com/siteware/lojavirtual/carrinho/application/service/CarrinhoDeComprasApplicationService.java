@@ -25,8 +25,10 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 		log.info("[start] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
 		CarrinhoDeCompras carrinhoDeCompras = carrinhoDeComprasRepository.salvaCarrinho(new CarrinhoDeCompras());
 	    log.info("[finish] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
-	    return new CarrinhoResponse(carrinhoDeCompras);
-	}
+	    return  CarrinhoResponse.builder()
+	    		.idCarrinhoDeCompras(carrinhoDeCompras.getIdCarrinhoDeCompras())
+	    		.build();
+	    }
 
 	@Override
 	public void adicionaItensAoCarrinho(UUID idCarrinho, List<ItemCarrinhoRequest> itens) {
