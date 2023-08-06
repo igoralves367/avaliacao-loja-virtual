@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
 import lombok.Value;
 
 @Value
@@ -13,9 +14,9 @@ public class CarrinhoResponse {
     private List<ItemCarrinhoResponse> itens;
     private BigDecimal valorTotal;
 
-    public CarrinhoResponse(UUID idCarrinhoDeCompras) {
-		this.idCarrinhoDeCompras = idCarrinhoDeCompras;
+	public CarrinhoResponse(CarrinhoDeCompras carrinhoDeCompras) {
+		this.idCarrinhoDeCompras = carrinhoDeCompras.getIdCarrinhoDeCompras();
         this.itens = Collections.emptyList();
         this.valorTotal = BigDecimal.ZERO;
-    }
+	}
 }
