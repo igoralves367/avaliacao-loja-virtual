@@ -12,8 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import org.hibernate.validator.constraints.br.CPF;
-
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.service.PromocaoStrategy;
 import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
@@ -32,8 +30,6 @@ public class CarrinhoDeCompras {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idCarrinhoDeCompras;
-	@CPF(message = "Insira um cpf valido")
-	private String cpf;
 
 	@OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemCarrinho> itens;
