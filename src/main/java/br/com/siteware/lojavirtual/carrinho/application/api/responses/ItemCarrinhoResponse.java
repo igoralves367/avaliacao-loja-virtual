@@ -8,6 +8,6 @@ import lombok.Value;
 public class ItemCarrinhoResponse {
 	private UUID idProduto;
 	private String nomeProduto;
-    private Integer quantidade;
+    private Double quantidade;
     private BigDecimal valorTotalItem;
 }

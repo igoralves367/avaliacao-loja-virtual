@@ -1,5 +1,7 @@
 package br.com.siteware.lojavirtual.carrinho.infra;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
@@ -14,10 +16,15 @@ public class CarrinhoDeComprasInfraRepository implements CarrinhoDeComprasReposi
 	private final CarrinhoDeComprasSpringDataJPARepository carrinhoDeComprasSpringDataJPARepository;
 
 	@Override
-	public CarrinhoDeCompras salva(CarrinhoDeCompras carrinhoDeCompras) {
+	public CarrinhoDeCompras salvaCarrinho(CarrinhoDeCompras carrinhoDeCompras) {
 		log.info("[start] CarrinhoDeComprasInfraRepository - salva");
 		CarrinhoDeCompras carrinhoSalvo = carrinhoDeComprasSpringDataJPARepository.save(carrinhoDeCompras);
 		log.info("[finish] CarrinhoDeComprasInfraRepository - salva");
 		return carrinhoSalvo;
+	}
+
+	@Override
+	public CarrinhoDeCompras buscaCarrinhoPorId(UUID idCarrinho) {
+		return null;
 	}
 }

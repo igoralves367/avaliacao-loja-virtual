@@ -14,7 +14,9 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.br.CPF;
 
-import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
+import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
+import br.com.siteware.lojavirtual.carrinho.application.service.PromocaoStrategy;
+import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,7 +24,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
-@Builder
+@Builder(access = AccessLevel.PACKAGE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class CarrinhoDeCompras {
 
@@ -43,8 +45,14 @@ public class CarrinhoDeCompras {
         this.dataHoraAbertura = LocalDateTime.now();
     }
 
-	public CarrinhoDeCompras(CarrinhoRequest carrinhoRequest) {
-		this.cpf = carrinhoRequest.getCpf();
-		this.dataHoraAbertura = LocalDateTime.now();
+	public void adicionaItens(List<ItemCarrinhoRequest> itens, ProdutoRepository produtoRepository,
+			PromocaoStrategy promocaoStrategy) {
+		itens.parallelStream().forEach(i -> adicionaItem(i, produtoRepository, promocaoStrategy));
+	}
+
+	private void adicionaItem(ItemCarrinhoRequest i, ProdutoRepository produtoRepository,
+			PromocaoStrategy promocaoStrategy) {
+		var optionalProduto = produtoRepository.consultaProdutoOptionalAtravesId(i.getIdProduto());
+		optionalProduto.ifPresent(p-> new ItemCarrinho(p,i,promocaoStrategy,this));
 	}
 }

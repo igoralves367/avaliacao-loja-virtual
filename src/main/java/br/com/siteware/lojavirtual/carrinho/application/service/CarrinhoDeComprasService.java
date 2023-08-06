@@ -1,8 +1,12 @@
 package br.com.siteware.lojavirtual.carrinho.application.service;
 
-import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
+import java.util.List;
+import java.util.UUID;
+
+import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 
 public interface CarrinhoDeComprasService {
-	CarrinhoResponse criaCarrinhoDeCompras(CarrinhoRequest carrinhoRequest);
+	CarrinhoResponse criaCarrinhoDeCompras();
+	void adicionaItensAoCarrinho(UUID idCarrinho, List<ItemCarrinhoRequest> itens);
 }
