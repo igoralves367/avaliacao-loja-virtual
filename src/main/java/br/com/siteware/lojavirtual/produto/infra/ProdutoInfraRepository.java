@@ -1,6 +1,7 @@
 package br.com.siteware.lojavirtual.produto.infra;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -48,6 +49,14 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));
 		log.info("[finish] ProdutoInfraRepository - consultaProdutoAtravesId");
 		return produto;
+	}
+	
+	@Override
+	public Optional<Produto> consultaProdutoOptionalAtravesId(UUID idProduto) {
+		log.info("[start] ProdutoInfraRepository - consultaProdutoAtravesId");
+		Optional<Produto> produtoOptional = produtoSpringDataJPARepository.findById(idProduto);
+		log.info("[finish] ProdutoInfraRepository - consultaProdutoAtravesId");
+		return produtoOptional;
 	}
 
 	@Override
