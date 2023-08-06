@@ -1,12 +1,13 @@
 package br.com.siteware.lojavirtual.produto.domain;
 
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,6 +37,8 @@ public class Produto {
 	private String nomeProduto;
 	@NotNull(message = "Insira o preco do produto")
 	private BigDecimal preco;
+	@Enumerated(EnumType.STRING)
+	private PromocaoEnum promocao;
 	
 	private LocalDateTime dataHoraDoCadastro; 
 	private LocalDateTime dataHoraDaUltimaAlteracao; 
@@ -43,12 +46,14 @@ public class Produto {
 	public Produto(ProdutoRequest produtoRequest) {
 		this.nomeProduto = produtoRequest.getNomeProduto();
 		this.preco = produtoRequest.getPreco();
+		this.promocao = produtoRequest.getPromocao();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
 
 	public void altera(ProdutoAlteracaoRequest produtoAlteracaoRequest) {
 		this.nomeProduto = produtoAlteracaoRequest.getNomeProduto();
 		this.preco = produtoAlteracaoRequest.getPreco();
+		this.promocao = produtoAlteracaoRequest.getPromocao();
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
 }
