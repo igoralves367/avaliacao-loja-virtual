@@ -33,11 +33,4 @@ public class CarrinhoDeComprasInfraRepository implements CarrinhoDeComprasReposi
 		log.info("[finish] CarrinhoDeComprasInfraRepository - buscaCarrinhoPorId");
 		return carrinhoDeCompras;
 	}
-
-	@Override
-	public void atualizaItensDoCarrinho(CarrinhoDeCompras carrinhoDeCompras) {
-		log.info("[start] CarrinhoDeComprasInfraRepository - atualizaItensDoCarrinho");
-	    carrinhoDeComprasSpringDataJPARepository.save(carrinhoDeCompras);
-	    log.info("[finish] CarrinhoDeComprasInfraRepository - atualizaItensDoCarrinho");
-	}
 }

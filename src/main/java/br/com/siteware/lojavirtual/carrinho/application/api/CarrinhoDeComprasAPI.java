@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
-import br.com.siteware.lojavirtual.carrinho.application.api.responses.ItemCarrinhoResponse;
 
 @RestController
 @RequestMapping("/v1/carrinho")
@@ -25,7 +24,7 @@ public interface CarrinhoDeComprasAPI {
 	
 	@PostMapping("/{idCarrinhoDeCompras}/itens")
     @ResponseStatus(code = HttpStatus.OK)
-    ItemCarrinhoResponse adicionaItensAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
-    		@RequestBody List<ItemCarrinhoRequest> itens);
+    void adicionaItensAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
+    		@RequestBody List<ItemCarrinhoRequest> itemCarrinhoRequest);
 	
 }

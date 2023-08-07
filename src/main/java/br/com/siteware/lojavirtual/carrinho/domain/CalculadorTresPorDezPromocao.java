@@ -5,12 +5,10 @@ import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 import br.com.siteware.lojavirtual.produto.domain.PromocaoEnum;
 import lombok.extern.log4j.Log4j2;
 @Component
-@Validated
 @Log4j2
 public class CalculadorTresPorDezPromocao implements CalculadorPrecoPromocional {
 
@@ -29,7 +27,7 @@ public class CalculadorTresPorDezPromocao implements CalculadorPrecoPromocional 
 	}
 
 	@Override
-	public Boolean possuiTipo(@NotNull PromocaoEnum promocaoEnum) {
+	public Boolean possuiTipo(PromocaoEnum promocaoEnum) {
 		return PromocaoEnum.TRES_POR_DEZ.equals(promocaoEnum);
 	}
 }

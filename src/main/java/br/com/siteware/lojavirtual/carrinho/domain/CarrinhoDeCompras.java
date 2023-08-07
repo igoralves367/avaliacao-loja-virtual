@@ -33,13 +33,13 @@ public class CarrinhoDeCompras {
 
 	@OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ItemCarrinho> itens;
-	
-	private LocalDateTime dataHoraAbertura;
-    private LocalDateTime dataHoraDaUltimaAlteracao;
 
-    public CarrinhoDeCompras() {
-        this.dataHoraAbertura = LocalDateTime.now();
-    }
+	private LocalDateTime dataHoraAbertura;
+	private LocalDateTime dataHoraDaUltimaAlteracao;
+
+	public CarrinhoDeCompras() {
+		this.dataHoraAbertura = LocalDateTime.now();
+	}
 
 	public void adicionaItens(List<ItemCarrinhoRequest> itens, ProdutoRepository produtoRepository,
 			PromocaoStrategy promocaoStrategy) {
@@ -49,6 +49,9 @@ public class CarrinhoDeCompras {
 	private void adicionaItem(ItemCarrinhoRequest i, ProdutoRepository produtoRepository,
 			PromocaoStrategy promocaoStrategy) {
 		var optionalProduto = produtoRepository.consultaProdutoOptionalAtravesId(i.getIdProduto());
-		optionalProduto.ifPresent(p-> new ItemCarrinho(p,i,promocaoStrategy,this));
+		optionalProduto.ifPresent(p -> {
+			ItemCarrinho newItem = new ItemCarrinho(p, i, promocaoStrategy, this);
+			this.itens.add(newItem);
+		});
 	}
 }

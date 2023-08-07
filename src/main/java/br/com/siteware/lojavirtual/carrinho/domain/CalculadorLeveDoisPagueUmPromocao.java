@@ -5,14 +5,12 @@ import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
 
 import br.com.siteware.lojavirtual.produto.domain.PromocaoEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 @Component
 @RequiredArgsConstructor
-@Validated
 @Log4j2
 public class CalculadorLeveDoisPagueUmPromocao implements CalculadorPrecoPromocional {
 
@@ -29,7 +27,7 @@ public class CalculadorLeveDoisPagueUmPromocao implements CalculadorPrecoPromoci
 	}
 
 	@Override
-	public Boolean possuiTipo(@NotNull PromocaoEnum promocaoEnum) {
+	public Boolean possuiTipo(PromocaoEnum promocaoEnum) {
 		return PromocaoEnum.LEVE_DOIS_PAGUE_UM.equals(promocaoEnum);
 	}
 }

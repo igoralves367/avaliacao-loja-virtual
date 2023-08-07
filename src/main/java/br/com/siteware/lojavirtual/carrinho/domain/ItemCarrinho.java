@@ -94,4 +94,10 @@ public class ItemCarrinho {
 	private void calculaPrecoTotalBruto() {
 		this.precoTotalBruto = this.precoUnitario.multiply(BigDecimal.valueOf(this.quantidade));
 	}
+
+//	public ItemCarrinho(ItemCarrinhoRequest itemRequest, ProdutoRepository produtoRepository,
+//			PromocaoStrategy promocaoStrategy, CarrinhoDeCompras carrinhoDeCompras) {
+//		this.idProduto = itemRequest.getIdProduto();
+//		this.quantidade = itemRequest.getQuantidade();
+//	} 
 }

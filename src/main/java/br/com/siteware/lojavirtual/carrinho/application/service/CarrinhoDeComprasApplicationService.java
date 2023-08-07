@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
-import br.com.siteware.lojavirtual.carrinho.application.api.responses.ItemCarrinhoResponse;
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
 import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
@@ -31,12 +30,11 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	}
 
 	@Override
-	public ItemCarrinhoResponse adicionaItensAoCarrinho(UUID idCarrinhoDeCompras,
-			List<ItemCarrinhoRequest> itens) {
+	public void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasApplicationService - adicionaItensAoCarrinho");
 		var carrinhoDeCompras = carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
-		carrinhoDeCompras.adicionaItens(itens, produtoRepository, promocaoStrategy);
+		carrinhoDeCompras.adicionaItens(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
+		carrinhoDeComprasRepository.salvaCarrinho(carrinhoDeCompras);
 		log.info("[finish] CarrinhoDeComprasApplicationService - adicionaItensAoCarrinho");
-		return null;
 	}
 }
