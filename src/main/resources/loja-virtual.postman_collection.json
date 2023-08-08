@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "e01e1422-f604-4ba9-a13c-d48208411aa6",
+		"name": "loja-virtual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23094206",
+		"_collection_link": "https://martian-shuttle-285139.postman.co/workspace/Siteware~dc385dd1-20e5-42cc-ab62-30b5f34fca9d/collection/23094206-e01e1422-f604-4ba9-a13c-d48208411aa6?action=share&creator=23094206&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Listar Todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConsultaProduto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/produto/c40c2055-cf62-4d48-850a-6ee125039a23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"produto",
+								"c40c2055-cf62-4d48-850a-6ee125039a23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera Produto",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeProduto\": \"Bola futebol Americanon\",\r\n  \"preco\":  10.00\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/produto/c40c2055-cf62-4d48-850a-6ee125039a23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"produto",
+								"c40c2055-cf62-4d48-850a-6ee125039a23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/produto/dffedb9a-3450-4eec-8179-47493ebc6846",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"produto",
+								"dffedb9a-3450-4eec-8179-47493ebc6846"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeProduto\": \"Bola de Basquet\",\r\n  \"preco\": 10,\r\n  \"promocao\": \"TRES_POR_DEZ\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/produto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CarrinhoDeCompras",
+			"item": [
+				{
+					"name": "Criar Carrinho",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cpf\": \"03308531550\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/carrinho",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"carrinho"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"idProduto\": \"b393eae0-a2fb-4e2b-b825-fc58f2be4426\",\r\n    \"quantidade\": 9\r\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/carrinho/b52c4d7e-b439-485c-b94c-4160af7b962b/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"carrinho",
+								"b52c4d7e-b439-485c-b94c-4160af7b962b",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Todos os Itens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/carrinho/b52c4d7e-b439-485c-b94c-4160af7b962b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"carrinho",
+								"b52c4d7e-b439-485c-b94c-4160af7b962b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Altera Item",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idProduto\": \"bc0539d6-9999-460c-9135-9997507266cd\",\r\n  \"quantidade\": 12\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/loja-virtual/api/v1/carrinho/ec182e79-dcdf-4444-8258-da4b11dccf7c/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"loja-virtual",
+								"api",
+								"v1",
+								"carrinho",
+								"ec182e79-dcdf-4444-8258-da4b11dccf7c",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
