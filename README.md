@@ -18,6 +18,7 @@ Este projeto consiste em uma aplicação de loja virtual com as seguintes funcio
 1. **Criar Carrinho de Compras**: Cria um novo carrinho de compras.
 2. **Adicionar Item ao Carrinho (POST)**: Adiciona um produto e sua quantidade ao carrinho.
 3. **Listar Itens do Carrinho (GET)**: Retorna a lista de itens presentes no carrinho.
+4. **Atualiza Itens do Carrinho (Patch)**: Altera o Item presentes no carrinho.
 
 ## Tecnologias Utilizadas
 
@@ -27,7 +28,7 @@ Este projeto consiste em uma aplicação de loja virtual com as seguintes funcio
 - Hibernate
 - H2 Database (em memória)
 - Swagger para documentação da API: [http://localhost:8080/loja-virtual/api/public/swagger](http://localhost:8080/loja-virtual/api/public/swagger)
-- Testes Unitários com JUnit
+- Testes de Logica com JUnit
 
 ## Instruções para Rodar o Projeto
 
@@ -44,6 +45,6 @@ LojaVirtualApplication.java
 Acesse a documentação Swagger da API em seu navegador:
 http://localhost:8080/loja-virtual/api/public/swagger
 
-Você também pode utilizar o Postman para testar as funcionalidades da API. A coleção do Postman está disponível neste link: 
+Você também pode utilizar o Postman para testar as funcionalidades da API. A coleção do Postman está disponível neste link: https://github.com/igoralves367/avaliacao-loja-virtual/blob/develop/src/main/resources/loja-virtual.postman_collection.json
 
 Este é um guia básico para rodar e entender as funcionalidades deste projeto de loja virtual. Certifique-se de que tem o Java 11 e o Maven instalados em seu ambiente para executar o projeto sem problemas. Se desejar, você pode personalizar e expandir este projeto de acordo com as necessidades específicas da empresa Siteware.
