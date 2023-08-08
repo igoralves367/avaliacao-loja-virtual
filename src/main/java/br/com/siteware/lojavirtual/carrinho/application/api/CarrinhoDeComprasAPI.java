@@ -1,6 +1,5 @@
 package br.com.siteware.lojavirtual.carrinho.application.api;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
-import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 
 @RestController
@@ -33,7 +31,7 @@ public interface CarrinhoDeComprasAPI {
 
 	@GetMapping(value = "/{idCarrinhoDeCompras}")
 	@ResponseStatus(code = HttpStatus.OK)
-	List<CarrinhoItemResponse> consultarItensDoCarrinho(@PathVariable UUID idCarrinhoDeCompras);
+	CarrinhoResponse consultarCarrinho(@PathVariable UUID idCarrinhoDeCompras);
 	
 	@PatchMapping("/{idCarrinhoDeCompras}/item")
 	@ResponseStatus(code = HttpStatus.OK)

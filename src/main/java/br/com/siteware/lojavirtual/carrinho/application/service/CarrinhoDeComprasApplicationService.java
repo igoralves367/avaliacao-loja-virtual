@@ -1,13 +1,11 @@
 package br.com.siteware.lojavirtual.carrinho.application.service;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
-import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
@@ -27,9 +25,9 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	public CarrinhoResponse criaCarrinhoDeCompras(CarrinhoRequest carrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
 		CarrinhoDeCompras carrinho = new CarrinhoDeCompras(carrinhoRequest);
-		CarrinhoDeCompras carrinhoDeCompras = carrinhoDeComprasRepository.salvaCarrinho(carrinho);
+		carrinhoDeComprasRepository.salvaCarrinho(carrinho);
 		log.info("[finish] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
-		return CarrinhoResponse.builder().idCarrinhoDeCompras(carrinhoDeCompras.getIdCarrinhoDeCompras()).build();
+		return new CarrinhoResponse(carrinho);
 	}
 
 	@Override
@@ -42,13 +40,12 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	}
 
 	@Override
-	public List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
+	public CarrinhoResponse consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
 		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
 		carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
-		List<CarrinhoItemResponse> itemCarrinho = carrinhoDeComprasRepository
-				.consultarItensDoCarrinho(idCarrinhoDeCompras);
+		CarrinhoDeCompras carrinhoDeCompras = carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
 		log.info("[finish] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
-		return CarrinhoItemResponse.converte(itemCarrinho);
+		return new CarrinhoResponse(carrinhoDeCompras);
 	}
 
 	@Override

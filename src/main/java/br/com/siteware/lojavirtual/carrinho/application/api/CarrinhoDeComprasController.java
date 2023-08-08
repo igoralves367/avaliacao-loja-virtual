@@ -1,13 +1,11 @@
 package br.com.siteware.lojavirtual.carrinho.application.api;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
-import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 import br.com.siteware.lojavirtual.carrinho.application.service.CarrinhoDeComprasService;
 import lombok.RequiredArgsConstructor;
@@ -34,12 +32,12 @@ public class CarrinhoDeComprasController implements CarrinhoDeComprasAPI {
 	}
 
 	@Override
-	public List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
-		log.info("[start] CarrinhoDeComprasController - consultarItensDoCarrinho");
+	public CarrinhoResponse consultarCarrinho(UUID idCarrinhoDeCompras) {
+		log.info("[start] CarrinhoDeComprasController - consultarCarrinho");
 		log.info("[idCarrinhoDeCompras] {}", idCarrinhoDeCompras);
-		List<CarrinhoItemResponse> consultarItens = carrinhoDeComprasService.consultarItensDoCarrinho(idCarrinhoDeCompras);
-		log.info("[finish] CarrinhoDeComprasController - consultarItensDoCarrinho");
-		return consultarItens;
+		CarrinhoResponse carrinhoResponse = carrinhoDeComprasService.consultarItensDoCarrinho(idCarrinhoDeCompras);
+		log.info("[finish] CarrinhoDeComprasController - consultarCarrinho");
+		return carrinhoResponse;
 	}
 
 	@Override
