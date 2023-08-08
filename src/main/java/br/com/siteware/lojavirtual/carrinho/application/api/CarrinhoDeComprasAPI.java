@@ -25,7 +25,7 @@ public interface CarrinhoDeComprasAPI {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	CarrinhoResponse criarCarrinho();
 
-	@PostMapping("/{idCarrinhoDeCompras}/itens")
+	@PostMapping("/{idCarrinhoDeCompras}/item")
 	@ResponseStatus(code = HttpStatus.OK)
 	void adicionaItensAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
 			@RequestBody ItemCarrinhoRequest itemCarrinhoRequest);
@@ -34,8 +34,8 @@ public interface CarrinhoDeComprasAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	List<CarrinhoItemResponse> consultarItensDoCarrinho(@PathVariable UUID idCarrinhoDeCompras);
 	
-	@PatchMapping("/{idItemCarrinho}/itens")
+	@PatchMapping("/{idCarrinhoDeCompras}/item")
 	@ResponseStatus(code = HttpStatus.OK)
-	void alteraItens(@PathVariable UUID idItemCarrinho,
-			@RequestBody List<ItemCarrinhoRequest> itemCarrinhoRequest);
+	void alteraItemAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
+			@RequestBody ItemCarrinhoRequest itemCarrinhoRequest);
 }

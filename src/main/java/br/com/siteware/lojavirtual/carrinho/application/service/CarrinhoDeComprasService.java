@@ -9,8 +9,8 @@ import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoRe
 
 public interface CarrinhoDeComprasService {
 	CarrinhoResponse criaCarrinhoDeCompras();
-	void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequests);
+	void adicionaItemAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequests);
 	List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras);
-	void alteraItens(UUID idItemCarrinho, List<ItemCarrinhoRequest> itemCarrinhoRequest);
+	void alteraItemAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequest);
 }
  

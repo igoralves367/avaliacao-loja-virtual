@@ -12,8 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.springframework.http.HttpStatus;
+
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.service.PromocaoStrategy;
+import br.com.siteware.lojavirtual.handler.APIException;
 import br.com.siteware.lojavirtual.produto.application.repository.ProdutoRepository;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -53,5 +56,24 @@ public class CarrinhoDeCompras {
 			ItemCarrinho newItem = new ItemCarrinho(p, i, promocaoStrategy, this);
 			this.itens.add(newItem);
 		});
+	}
+
+	public void alteraItem(ItemCarrinhoRequest itemCarrinhoRequest, ProdutoRepository produtoRepository,
+			PromocaoStrategy promocaoStrategy) {
+		if (itemJaExisteNoCarrinho(itemCarrinhoRequest)) {
+			removeItem(itemCarrinhoRequest.getIdProduto());
+			adicionaItem(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
+		} else {
+			throw APIException.build(HttpStatus.BAD_REQUEST, "Não existe esse produto no carrinho");
+		}
+	}
+
+	public void removeItem(UUID idProduto) {
+		this.itens.removeIf(i -> i.getIdProduto().equals(idProduto));
+	}
+
+	private Boolean itemJaExisteNoCarrinho(ItemCarrinhoRequest itemCarrinhoRequest) {
+		return this.itens.stream().filter(i -> i.getIdProduto().equals(itemCarrinhoRequest.getIdProduto())).findFirst()
+				.isPresent();
 	}
 }

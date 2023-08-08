@@ -28,7 +28,7 @@ public class CarrinhoDeComprasController implements CarrinhoDeComprasAPI {
 	@Override
 	public void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequests) {
 		log.info("[start] CarrinhoDeComprasController - adicionaItensAoCarrinho");
-		carrinhoDeComprasService.adicionaItensAoCarrinho(idCarrinhoDeCompras, itemCarrinhoRequests);
+		carrinhoDeComprasService.adicionaItemAoCarrinho(idCarrinhoDeCompras, itemCarrinhoRequests);
         log.info("[finish] CarrinhoDeComprasController - adicionaItensAoCarrinho");
 	}
 
@@ -42,10 +42,10 @@ public class CarrinhoDeComprasController implements CarrinhoDeComprasAPI {
 	}
 
 	@Override
-	public void alteraItens(UUID idItemCarrinho, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
-		log.info("[start] CarrinhoDeComprasController - alteraItens");
-		log.info("[idCarrinhoDeCompras] {}", idItemCarrinho);
-		carrinhoDeComprasService.alteraItens(idItemCarrinho, itemCarrinhoRequest);
-		log.info("[finish] CarrinhoDeComprasController - alteraItens");
+	public void alteraItemAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequest) {
+		log.info("[start] CarrinhoDeComprasController - alteraItemAoCarrinho");
+		log.info("[idCarrinhoDeCompras] {}", idCarrinhoDeCompras);
+		carrinhoDeComprasService.alteraItemAoCarrinho(idCarrinhoDeCompras, itemCarrinhoRequest);
+		log.info("[finish] CarrinhoDeComprasController - alteraItemAoCarrinho");
 	}
 }
