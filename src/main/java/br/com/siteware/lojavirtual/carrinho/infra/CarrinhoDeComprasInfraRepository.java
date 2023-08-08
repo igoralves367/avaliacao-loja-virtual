@@ -1,10 +1,12 @@
 package br.com.siteware.lojavirtual.carrinho.infra;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
 import br.com.siteware.lojavirtual.handler.APIException;
@@ -32,5 +34,13 @@ public class CarrinhoDeComprasInfraRepository implements CarrinhoDeComprasReposi
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Carrinho não encontrado"));
 		log.info("[finish] CarrinhoDeComprasInfraRepository - buscaCarrinhoPorId");
 		return carrinhoDeCompras;
+	}
+
+	@Override
+	public List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
+		log.info("[start] CarrinhoDeComprasInfraRepository - consultarItensDoCarrinho");
+		List<CarrinhoItemResponse> carrinhoItemResponse = carrinhoDeComprasSpringDataJPARepository.consultarItensDoCarrinho(idCarrinhoDeCompras);
+		log.info("[finish] CarrinhoDeComprasInfraRepository - consultarItensDoCarrinho");
+		return carrinhoItemResponse;
 	}
 }

@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
+import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
 import br.com.siteware.lojavirtual.carrinho.application.repository.CarrinhoDeComprasRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.CarrinhoDeCompras;
@@ -36,5 +37,14 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 		carrinhoDeCompras.adicionaItens(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
 		carrinhoDeComprasRepository.salvaCarrinho(carrinhoDeCompras);
 		log.info("[finish] CarrinhoDeComprasApplicationService - adicionaItensAoCarrinho");
+	}
+
+	@Override
+	public List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
+		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
+		carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
+		List<CarrinhoItemResponse> itemCarrinho = carrinhoDeComprasRepository.consultarItensDoCarrinho(idCarrinhoDeCompras);
+		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
+		return CarrinhoItemResponse.converte(itemCarrinho);
 	}
 }

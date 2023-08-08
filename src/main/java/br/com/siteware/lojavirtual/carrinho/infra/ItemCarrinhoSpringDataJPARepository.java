@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.siteware.lojavirtual.carrinho.domain.ItemCarrinho;
 
 public interface ItemCarrinhoSpringDataJPARepository extends JpaRepository <ItemCarrinho, UUID>{
+	
 }
