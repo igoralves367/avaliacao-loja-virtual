@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
@@ -23,9 +24,10 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	private final PromocaoStrategy promocaoStrategy;
 
 	@Override
-	public CarrinhoResponse criaCarrinhoDeCompras() {
+	public CarrinhoResponse criaCarrinhoDeCompras(CarrinhoRequest carrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
-		CarrinhoDeCompras carrinhoDeCompras = carrinhoDeComprasRepository.salvaCarrinho(new CarrinhoDeCompras());
+		CarrinhoDeCompras carrinho = new CarrinhoDeCompras(carrinhoRequest);
+		CarrinhoDeCompras carrinhoDeCompras = carrinhoDeComprasRepository.salvaCarrinho(carrinho);
 		log.info("[finish] CarrinhoDeComprasApplicationService - criaCarrinhoDeCompras");
 		return CarrinhoResponse.builder().idCarrinhoDeCompras(carrinhoDeCompras.getIdCarrinhoDeCompras()).build();
 	}

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.siteware.lojavirtual.carrinho.application.api.requests.CarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.requests.ItemCarrinhoRequest;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoItemResponse;
 import br.com.siteware.lojavirtual.carrinho.application.api.responses.CarrinhoResponse;
@@ -18,9 +19,9 @@ public class CarrinhoDeComprasController implements CarrinhoDeComprasAPI {
 	private final CarrinhoDeComprasService carrinhoDeComprasService; 
 
 	@Override
-	public CarrinhoResponse criarCarrinho() {
+	public CarrinhoResponse criarCarrinho(CarrinhoRequest carrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasController - criaCarrinhoDeCompras");
-		CarrinhoResponse carrinhoResponse = carrinhoDeComprasService.criaCarrinhoDeCompras();
+		CarrinhoResponse carrinhoResponse = carrinhoDeComprasService.criaCarrinhoDeCompras(carrinhoRequest);
 		log.info("[finish] CarrinhoDeComprasController - criaCarrinhoDeCompras");
 		return carrinhoResponse;
 	}
