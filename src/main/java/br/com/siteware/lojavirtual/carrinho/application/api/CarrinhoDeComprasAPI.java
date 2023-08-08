@@ -28,14 +28,14 @@ public interface CarrinhoDeComprasAPI {
 	@PostMapping("/{idCarrinhoDeCompras}/itens")
 	@ResponseStatus(code = HttpStatus.OK)
 	void adicionaItensAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
-			@RequestBody List<ItemCarrinhoRequest> itemCarrinhoRequest);
+			@RequestBody ItemCarrinhoRequest itemCarrinhoRequest);
 
 	@GetMapping(value = "/{idCarrinhoDeCompras}")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<CarrinhoItemResponse> consultarItensDoCarrinho(@PathVariable UUID idCarrinhoDeCompras);
 	
-	@PatchMapping("/{idCarrinhoDeCompras}/itens")
+	@PatchMapping("/{idItemCarrinho}/itens")
 	@ResponseStatus(code = HttpStatus.OK)
-	void alteraItenAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
+	void alteraItens(@PathVariable UUID idItemCarrinho,
 			@RequestBody List<ItemCarrinhoRequest> itemCarrinhoRequest);
 }

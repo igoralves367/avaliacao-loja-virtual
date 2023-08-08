@@ -46,7 +46,7 @@ public class CarrinhoDeCompras {
 		itens.parallelStream().forEach(i -> adicionaItem(i, produtoRepository, promocaoStrategy));
 	}
 
-	private void adicionaItem(ItemCarrinhoRequest i, ProdutoRepository produtoRepository,
+	public void adicionaItem(ItemCarrinhoRequest i, ProdutoRepository produtoRepository,
 			PromocaoStrategy promocaoStrategy) {
 		var optionalProduto = produtoRepository.consultaProdutoOptionalAtravesId(i.getIdProduto());
 		optionalProduto.ifPresent(p -> {

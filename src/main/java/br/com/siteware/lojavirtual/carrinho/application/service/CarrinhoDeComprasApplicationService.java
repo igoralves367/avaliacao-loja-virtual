@@ -31,10 +31,10 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	}
 
 	@Override
-	public void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
+	public void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, ItemCarrinhoRequest itemCarrinhoRequest) {
 		log.info("[start] CarrinhoDeComprasApplicationService - adicionaItensAoCarrinho");
 		var carrinhoDeCompras = carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
-		carrinhoDeCompras.adicionaItens(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
+		carrinhoDeCompras.adicionaItem(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
 		carrinhoDeComprasRepository.salvaCarrinho(carrinhoDeCompras);
 		log.info("[finish] CarrinhoDeComprasApplicationService - adicionaItensAoCarrinho");
 	}
@@ -43,17 +43,15 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 	public List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras) {
 		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
 		carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
-		List<CarrinhoItemResponse> itemCarrinho = carrinhoDeComprasRepository.consultarItensDoCarrinho(idCarrinhoDeCompras);
-		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
+		List<CarrinhoItemResponse> itemCarrinho = carrinhoDeComprasRepository
+				.consultarItensDoCarrinho(idCarrinhoDeCompras);
+		log.info("[finish] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
 		return CarrinhoItemResponse.converte(itemCarrinho);
 	}
 
 	@Override
-	public void alteraItenAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
-		log.info("[start] CarrinhoDeComprasApplicationService - alteraItenAoCarrinho");
-	    var carrinhoDeCompras = carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
-	   // carrinhoDeCompras.alteraItem(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
-	    carrinhoDeComprasRepository.salvaCarrinho(carrinhoDeCompras);
-	    log.info("[finish] CarrinhoDeComprasApplicationService - alteraItenAoCarrinho");
+	public void alteraItens(UUID idItemCarrinho, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
+		log.info("[start] CarrinhoDeComprasApplicationService - alteraItens");
+		log.info("[finish] CarrinhoDeComprasApplicationService - alteraItens");
 	}
 }
