@@ -47,4 +47,13 @@ public class CarrinhoDeComprasApplicationService implements CarrinhoDeComprasSer
 		log.info("[start] CarrinhoDeComprasApplicationService - consultarItensDoCarrinho");
 		return CarrinhoItemResponse.converte(itemCarrinho);
 	}
+
+	@Override
+	public void alteraItenAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
+		log.info("[start] CarrinhoDeComprasApplicationService - alteraItenAoCarrinho");
+	    var carrinhoDeCompras = carrinhoDeComprasRepository.buscaCarrinhoPorId(idCarrinhoDeCompras);
+	   // carrinhoDeCompras.alteraItem(itemCarrinhoRequest, produtoRepository, promocaoStrategy);
+	    carrinhoDeComprasRepository.salvaCarrinho(carrinhoDeCompras);
+	    log.info("[finish] CarrinhoDeComprasApplicationService - alteraItenAoCarrinho");
+	}
 }

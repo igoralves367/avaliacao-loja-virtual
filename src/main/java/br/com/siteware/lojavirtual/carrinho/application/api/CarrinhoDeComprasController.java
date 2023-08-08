@@ -40,4 +40,11 @@ public class CarrinhoDeComprasController implements CarrinhoDeComprasAPI {
 		log.info("[finish] CarrinhoDeComprasController - consultarItensDoCarrinho");
 		return consultarItens;
 	}
+
+	@Override
+	public void alteraItenAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest) {
+		log.info("[start] CarrinhoDeComprasController - alteraItenAoCarrinho");
+		carrinhoDeComprasService.alteraItenAoCarrinho(idCarrinhoDeCompras, itemCarrinhoRequest);
+        log.info("[finish] CarrinhoDeComprasController - alteraItenAoCarrinho");
+	}
 }

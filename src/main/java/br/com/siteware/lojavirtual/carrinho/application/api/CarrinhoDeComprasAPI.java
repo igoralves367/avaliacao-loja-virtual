@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,4 +33,9 @@ public interface CarrinhoDeComprasAPI {
 	@GetMapping(value = "/{idCarrinhoDeCompras}")
 	@ResponseStatus(code = HttpStatus.OK)
 	List<CarrinhoItemResponse> consultarItensDoCarrinho(@PathVariable UUID idCarrinhoDeCompras);
+	
+	@PatchMapping("/{idCarrinhoDeCompras}/itens")
+	@ResponseStatus(code = HttpStatus.OK)
+	void alteraItenAoCarrinho(@PathVariable UUID idCarrinhoDeCompras,
+			@RequestBody List<ItemCarrinhoRequest> itemCarrinhoRequest);
 }

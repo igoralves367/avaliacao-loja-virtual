@@ -11,4 +11,5 @@ public interface CarrinhoDeComprasService {
 	CarrinhoResponse criaCarrinhoDeCompras();
 	void adicionaItensAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest);
 	List<CarrinhoItemResponse> consultarItensDoCarrinho(UUID idCarrinhoDeCompras);
+	void alteraItenAoCarrinho(UUID idCarrinhoDeCompras, List<ItemCarrinhoRequest> itemCarrinhoRequest);
 }
